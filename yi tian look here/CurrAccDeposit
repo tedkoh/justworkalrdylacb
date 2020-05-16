@@ -1,0 +1,18 @@
+def CurrAccDeposit(amount,accountId):
+    import requests
+
+    url = "https://razerhackathon.sandbox.mambu.com/api/savings/{}/transactions"
+    auth = ('Team112','pass19694D02B3')
+    payload = {"amount": amount,
+               "notes": "Deposit into savings account",
+               "type": "DEPOSIT",
+               "method": "bank",
+               "customInformation": 
+                   [{"value": "unique identifier for receipt",
+                     "customFieldID": "IDENTIFIER_TRANSACTION_CHANNEL_I"
+                     }]}
+    headers = {'Content-Type': 'application/json'}
+
+    response = requests.request("POST", url.format(accountId), headers=headers, data = str(payload), auth = auth)
+
+    return response.json()

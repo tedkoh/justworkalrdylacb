@@ -1,0 +1,10 @@
+def GetBranchID():
+	import requests
+	
+	url = "https://razerhackathon.sandbox.mambu.com/api/branches/{}"
+	auth = ('Team112','pass19694D02B3')
+	payload  = {}
+	headers = {'Content-Type': 'application/json'}
+	
+	response = requests.request("GET", url.format('Team112'), headers=headers, data = payload, auth = auth)
+	return response['encodedKey']
