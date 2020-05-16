@@ -1,0 +1,11 @@
+def CreateCAcc(clientId):
+	import requests
+
+	url = "https://razerhackathon.sandbox.mambu.com/api/savings"
+	auth = ('Team112','pass19694D02B3')
+	payload = {"savingsAccount": {"name": "Digital Account","accountHolderType": "CLIENT","accountHolderKey": clientId,"accountState": "APPROVED","productTypeKey": "8a8e878471bf59cf0171bf6979700440","accountType": "CURRENT_ACCOUNT","currencyCode": "SGD","allowOverdraft": "true","overdraftLimit": "100","overdraftInterestSettings": {"interestRate": 5},"interestSettings": {"interestRate": "1.25"}}}
+	headers = {'Content-Type': 'application/json'}
+
+	response = requests.request("POST", url, headers=headers, data = str(payload), auth = auth)
+
+	return response.json()
