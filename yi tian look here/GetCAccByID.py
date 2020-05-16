@@ -6,6 +6,6 @@ def GetCAccByID(accountId):
     payload  = {}
     headers = {'': ''}
 
-    response = requests.request("GET", url.format(accountId, headers=headers, data = payload, auth=auth)
+    response = requests.request("GET", url.format(accountId), headers=headers, data = payload, auth=auth)
 
     return response.json()
